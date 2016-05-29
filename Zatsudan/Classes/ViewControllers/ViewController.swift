@@ -40,7 +40,7 @@ class ViewController: JSQMessagesViewController {
 
         //初期化
         AuthApiKey.initializeAuth("6e2f54636b655364647a6f6d524644424b6e4f50504e665a517772333376324d354e6f4c4e514a59307744")
-        self.context = randomString(12)
+        self.context = randomString(18)
         print(self.context)
     }
 
@@ -58,11 +58,18 @@ class ViewController: JSQMessagesViewController {
         let message = JSQMessage(senderId: senderId, displayName: senderDisplayName, text: text)
         self.messages.append(message)
         
-        //メッセジの送信処理を完了する(画面上にメッセージが表示される)
+        //メッセージの送信処理を完了する(画面上にメッセージが表示される)
         self.finishReceivingMessageAnimated(true)
+        self.inputToolbar.contentView.textView.text = ""
 
         //対話メッセージを要求する
         self.requestMessage(text)
+    }
+
+    //アクセサリーボタンが押された時に呼ばれる
+    override func didPressAccessoryButton(sender: UIButton!) {
+        //何もしない（未実装）
+        //メソッドがないと落ちる
     }
 
     //アイテムごとに参照するメッセージデータを返す
@@ -110,7 +117,7 @@ class ViewController: JSQMessagesViewController {
                 self.context = result.context
             },
             onError: { error in
-                print(error.code)
+                self.errorAlert("エラーコード：\(error.code)")
         })
     }
 
@@ -145,10 +152,6 @@ class ViewController: JSQMessagesViewController {
             param.birthdateY = comps.year
             param.birthdateM = comps.month
             param.birthdateD = comps.day
-            print(comps.year)
-            print(comps.month)
-            print(comps.day)
-            
         }
         param.place = Area(rawValue: Defaults[.userArea])?.toString()
         switch Defaults[.userLangage] {
@@ -169,11 +172,21 @@ class ViewController: JSQMessagesViewController {
 
     //ランダムな文字列を生成する
     private func randomString(length: Int) -> String {
-        let alphabet = "-_1234567890abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
+        let alphabet = "1234567890abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
         let upperBound = UInt32(alphabet.characters.count)
         return String((0..<length).map { _ -> Character in
             return alphabet[alphabet.startIndex.advancedBy(Int(arc4random_uniform(upperBound)))]
             })
+    }
+
+    //エラーコード表示
+    private func errorAlert(message: String) {
+        let alert = UIAlertController(title: "エラー", message: message, preferredStyle: .Alert)
+        let ok = UIAlertAction(title: "OK", style: .Default) { action in
+            print(message)
+        }
+        alert.addAction(ok)
+        presentViewController(alert, animated: true, completion: nil)
     }
 }
 

@@ -52,7 +52,10 @@ class SettingViewController: UIViewController {
         self.areaPicker.delegate = self
 
         self.setValues()
-    }
+
+        // キーボード外のタッチでキーボードを閉じるための設定
+        let gestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(SettingViewController.closeSoftKeyboard))
+        self.view.addGestureRecognizer(gestureRecognizer)    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -60,7 +63,7 @@ class SettingViewController: UIViewController {
     }
 
     // MARK: - Private Methods
-    func setValues() {
+    private func setValues() {
         self.nameLabel.text = Defaults[.userName]
         self.kanaLabel.text = Defaults[.userKana]
         self.sexSegControl.selectedSegmentIndex = Defaults[.userSex]
@@ -70,9 +73,12 @@ class SettingViewController: UIViewController {
         } else {
             self.birthDataPicker.date = NSDate()
         }
-        print(Defaults[.userArea])
         self.areaPicker.selectRow(Defaults[.userArea], inComponent: 0, animated: true)
         self.langSegControl.selectedSegmentIndex = Defaults[.userLangage]
+    }
+
+    func closeSoftKeyboard() {
+        self.view.endEditing(true)
     }
 }
 
