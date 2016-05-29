@@ -5,18 +5,12 @@ platform :ios, '8.0'
 use_frameworks!
 
 target 'Zatsudan' do
-	pod 'Alamofire'
-	pod 'ObjectMapper'
+    #pod 'Alamofire'
+    #pod 'ObjectMapper'
+    #pod 'RealmSwift'
 
-    pod 'RealmSwift'
-	pod 'SwiftyUserDefaults'
-
+    pod 'SwiftyUserDefaults'
     pod 'R.swift'
-    #pod 'SlideMenuControllerSwift'
-    #pod 'ChameleonFramework'
-
-    #pod 'XCGLogger'
-
     pod 'JSQMessagesViewController'
 end
 
