@@ -8,6 +8,7 @@
 
 import UIKit
 import JSQMessagesViewController
+import SwiftyUserDefaults
 
 class ViewController: JSQMessagesViewController {
 
@@ -30,7 +31,7 @@ class ViewController: JSQMessagesViewController {
         
         //吹き出しの設定
         let bubbleFactory = JSQMessagesBubbleImageFactory()
-        self.incomingBubble = bubbleFactory.incomingMessagesBubbleImageWithColor(UIColor.jsq_messageBubbleLightGrayColor())
+        self.incomingBubble = bubbleFactory.incomingMessagesBubbleImageWithColor(UIColor.jsq_messageBubbleBlueColor())
         self.outgoingBubble = bubbleFactory.outgoingMessagesBubbleImageWithColor(UIColor.jsq_messageBubbleGreenColor())
         
         //アバターの設定
@@ -47,7 +48,8 @@ class ViewController: JSQMessagesViewController {
         super.didReceiveMemoryWarning()
     }
 
-    // MARK: - Private Methods
+
+    // MARK: - Override Methods
 
     //Sendボタンが押された時に呼ばれる
     override func didPressSendButton(button: UIButton!, withMessageText text: String!, senderId: String!, senderDisplayName: String!, date: NSDate!) {
@@ -90,35 +92,83 @@ class ViewController: JSQMessagesViewController {
     override func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return self.messages.count
     }
+
+
+    // MARK: - Private Methods
     
     //対話メッセージを要求する
-    func requestMessage(text: String) {
+    private func requestMessage(text: String) {
         let dialogue = Dialogue()
-        let param = DialogueRequestParam()
-        param.utt = text
-        param.mode = self.mode
-        param.context = self.context
+        let param = self.createRequestParam(text)
 
-//        //DialogueErrorクラスがx86_64にないためコメント
-//        let sendError =
+        //API
+        //Memo: DialogueErrorクラスがx86_64にないので返り値は受けとらない
         dialogue.request(param,
             onComplete: { result in
-                let message = JSQMessage(senderId: "api", displayName: "api", text: result.utt)
-                self.messages.append(message)
-                self.finishReceivingMessageAnimated(true)
+                self.showResponseMessage(result.utt)
                 self.mode = result.mode
                 self.context = result.context
             },
             onError: { error in
                 print(error.code)
         })
-//        if sendError != nil {
-//            print(sendError.code)
-//        }
+    }
+
+    //リクエストパラメータを生成する
+    private func createRequestParam(text: String) -> DialogueRequestParam {
+        let param = DialogueRequestParam()
+        param.utt = text
+        param.mode = self.mode
+        param.context = self.context
+
+        if Defaults[.userName].characters.count != 0 {
+            param.nickname = Defaults[.userName]
+        }
+        if Defaults[.userKana].characters.count != 0 {
+            param.nickname_y = Defaults[.userKana]
+        }
+        if Defaults[.userSex] == 0 {
+            param.sex = "男"
+        } else {
+            param.sex = "女"
+        }
+        switch Defaults[.userBlood] {
+        case 0: param.bloodtype = "A"
+        case 1: param.bloodtype = "B"
+        case 2: param.bloodtype = "C"
+        case 3: param.bloodtype = "D"
+        default: break
+        }
+        if let birth = Defaults[.userBirthDay] {
+            let calendar = NSCalendar.currentCalendar()
+            let comps = calendar.components([.Year, .Month, .Day], fromDate: birth)
+            param.birthdateY = comps.year
+            param.birthdateM = comps.month
+            param.birthdateD = comps.day
+            print(comps.year)
+            print(comps.month)
+            print(comps.day)
+            
+        }
+        param.place = Area(rawValue: Defaults[.userArea])?.toString()
+        switch Defaults[.userLangage] {
+        case 1: param.character = 20
+        case 2: param.character = 30
+        default: break
+        }
+        
+        return param
+    }
+
+    //レスポンスを表示する
+    private func showResponseMessage(text: String) {
+        let message = JSQMessage(senderId: "api", displayName: "api", text: text)
+        self.messages.append(message)
+        self.finishReceivingMessageAnimated(true)
     }
 
     //ランダムな文字列を生成する
-    func randomString(length: Int) -> String {
+    private func randomString(length: Int) -> String {
         let alphabet = "-_1234567890abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
         let upperBound = UInt32(alphabet.characters.count)
         return String((0..<length).map { _ -> Character in

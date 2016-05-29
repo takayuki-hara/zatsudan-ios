@@ -6,7 +6,11 @@ import Rswift
 import UIKit
 
 /// This `R` struct is code generated, and contains references to static resources.
-struct R {
+struct R: Rswift.Validatable {
+  static func validate() throws {
+    try intern.validate()
+  }
+  
   /// This `R.color` struct is generated, and contains static references to 0 color palettes.
   struct color {
     private init() {}
@@ -22,10 +26,12 @@ struct R {
     private init() {}
   }
   
-  /// This `R.image` struct is generated, and contains static references to 2 images.
+  /// This `R.image` struct is generated, and contains static references to 3 images.
   struct image {
     /// Image `ApiIcon`.
     static let apiIcon = ImageResource(bundle: _R.hostingBundle, name: "ApiIcon")
+    /// Image `Setting`.
+    static let setting = ImageResource(bundle: _R.hostingBundle, name: "Setting")
     /// Image `YouIcon`.
     static let youIcon = ImageResource(bundle: _R.hostingBundle, name: "YouIcon")
     
@@ -34,9 +40,22 @@ struct R {
       return UIImage(resource: R.image.apiIcon, compatibleWithTraitCollection: traitCollection)
     }
     
+    /// `UIImage(named: "Setting", bundle: ..., traitCollection: ...)`
+    static func setting(compatibleWithTraitCollection traitCollection: UITraitCollection? = nil) -> UIImage? {
+      return UIImage(resource: R.image.setting, compatibleWithTraitCollection: traitCollection)
+    }
+    
     /// `UIImage(named: "YouIcon", bundle: ..., traitCollection: ...)`
     static func youIcon(compatibleWithTraitCollection traitCollection: UITraitCollection? = nil) -> UIImage? {
       return UIImage(resource: R.image.youIcon, compatibleWithTraitCollection: traitCollection)
+    }
+    
+    private init() {}
+  }
+  
+  private struct intern: Rswift.Validatable {
+    static func validate() throws {
+      try _R.validate()
     }
     
     private init() {}
@@ -85,15 +104,23 @@ struct R {
   private init() {}
 }
 
-struct _R {
+struct _R: Rswift.Validatable {
   static let applicationLocale = hostingBundle.preferredLocalizations.first.flatMap(NSLocale.init) ?? NSLocale.currentLocale()
   static let hostingBundle = NSBundle(identifier: "jp.co.hispot.Zatsudan") ?? NSBundle.mainBundle()
+  
+  static func validate() throws {
+    try storyboard.validate()
+  }
   
   struct nib {
     private init() {}
   }
   
-  struct storyboard {
+  struct storyboard: Rswift.Validatable {
+    static func validate() throws {
+      try main.validate()
+    }
+    
     struct launchScreen: StoryboardResourceWithInitialControllerType {
       typealias InitialController = UIViewController
       
@@ -103,11 +130,15 @@ struct _R {
       private init() {}
     }
     
-    struct main: StoryboardResourceWithInitialControllerType {
-      typealias InitialController = ViewController
+    struct main: StoryboardResourceWithInitialControllerType, Rswift.Validatable {
+      typealias InitialController = UINavigationController
       
       let bundle = _R.hostingBundle
       let name = "Main"
+      
+      static func validate() throws {
+        if UIImage(named: "Setting") == nil { throw ValidationError(description: "[R.swift] Image named 'Setting' is used in storyboard 'Main', but couldn't be loaded.") }
+      }
       
       private init() {}
     }

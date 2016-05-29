@@ -23,11 +23,19 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="しりとりを提案するとしりとりモードになります" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hsX-hz-T6s">
-                                <rect key="frame" x="150" y="269.5" width="300" height="60"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="しりとりもできます。" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hsX-hz-T6s">
+                                <rect key="frame" x="180" y="288" width="240" height="24"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="60" id="COW-Gg-d1z"/>
-                                    <constraint firstAttribute="width" constant="300" id="EEV-xa-neb"/>
+                                    <constraint firstAttribute="width" constant="240" id="EEV-xa-neb"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="提案してみましょう。" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wkp-EB-U01">
+                                <rect key="frame" x="180" y="322.5" width="240" height="24"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="240" id="dDn-FY-VHh"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -37,6 +45,8 @@
                         <color key="backgroundColor" red="0.15101002156734467" green="0.56891876459121704" blue="0.43715286254882812" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="hqg-JM-hQh" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="1sM-0V-0hn"/>
+                            <constraint firstItem="wkp-EB-U01" firstAttribute="top" secondItem="hsX-hz-T6s" secondAttribute="bottom" constant="10" id="cZO-MI-sYF"/>
+                            <constraint firstItem="wkp-EB-U01" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="dvW-fX-B38"/>
                             <constraint firstItem="hsX-hz-T6s" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="jcx-Pj-hEh"/>
                             <constraint firstItem="hsX-hz-T6s" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="nWH-qA-CYm"/>
                             <constraint firstItem="hqg-JM-hQh" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" constant="-200" id="yzq-PP-ZrH"/>

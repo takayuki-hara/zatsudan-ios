@@ -9,7 +9,7 @@ target 'Zatsudan' do
 	pod 'ObjectMapper'
 
     pod 'RealmSwift'
-	#pod 'SwiftyUserDefaults'
+	pod 'SwiftyUserDefaults'
 
     pod 'R.swift'
     #pod 'SlideMenuControllerSwift'

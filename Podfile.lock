@@ -12,6 +12,7 @@ PODS:
   - Realm/Headers (1.0.0)
   - RealmSwift (1.0.0):
     - Realm (= 1.0.0)
+  - SwiftyUserDefaults (2.2.0)
 
 DEPENDENCIES:
   - Alamofire
@@ -19,6 +20,7 @@ DEPENDENCIES:
   - ObjectMapper
   - R.swift
   - RealmSwift
+  - SwiftyUserDefaults
 
 SPEC CHECKSUMS:
   Alamofire: c19a627cefd6a95f840401c49ab1f124e07f54ee
@@ -29,7 +31,8 @@ SPEC CHECKSUMS:
   R.swift.Library: e5e077ed04f6867a95676af491650091b23518e9
   Realm: e15cd8e7c11d3e576f628ba0b7cb855269b4991c
   RealmSwift: 3229306d020d96f83b335f87a0dcbf2cef0e6a2b
+  SwiftyUserDefaults: e7c8197a9d4068702e7f2406a968cae413b8de27
 
-PODFILE CHECKSUM: 596531138ab65c41ce7679e2b9167bda65353082
+PODFILE CHECKSUM: 64cd7a138fa7de6acf483d78f9a1eb899226ddaa
 
 COCOAPODS: 1.0.0

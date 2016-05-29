@@ -15,6 +15,9 @@
 		FD52FB521CFA7106004E53E9 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD52FB501CFA7106004E53E9 /* ViewController.swift */; };
 		FD52FB551CFA7582004E53E9 /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD52FB541CFA7582004E53E9 /* R.generated.swift */; };
 		FD52FB631CFA80D3004E53E9 /* libdocomo-dialogue-ios-sdk-2.0.0.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FD52FB611CFA80D3004E53E9 /* libdocomo-dialogue-ios-sdk-2.0.0.a */; };
+		FD52FB681CFA9530004E53E9 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD52FB671CFA9530004E53E9 /* SettingViewController.swift */; };
+		FD52FB6B1CFAAECE004E53E9 /* SwiftyUserDefaultsExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD52FB6A1CFAAECE004E53E9 /* SwiftyUserDefaultsExtension.swift */; };
+		FD52FB6D1CFAC010004E53E9 /* Area.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD52FB6C1CFAC010004E53E9 /* Area.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -33,6 +36,9 @@
 		FD52FB601CFA80D3004E53E9 /* libdocomo-common-ios-sdk-1.0.1.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libdocomo-common-ios-sdk-1.0.1.a"; path = "Libraries/DialogueApiSDK/libs/libdocomo-common-ios-sdk-1.0.1.a"; sourceTree = "<group>"; };
 		FD52FB611CFA80D3004E53E9 /* libdocomo-dialogue-ios-sdk-2.0.0.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libdocomo-dialogue-ios-sdk-2.0.0.a"; path = "Libraries/DialogueApiSDK/libs/libdocomo-dialogue-ios-sdk-2.0.0.a"; sourceTree = "<group>"; };
 		FD52FB641CFA8155004E53E9 /* Zatsudan-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Zatsudan-Bridging-Header.h"; sourceTree = "<group>"; };
+		FD52FB671CFA9530004E53E9 /* SettingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
+		FD52FB6A1CFAAECE004E53E9 /* SwiftyUserDefaultsExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftyUserDefaultsExtension.swift; sourceTree = "<group>"; };
+		FD52FB6C1CFAC010004E53E9 /* Area.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Area.swift; sourceTree = "<group>"; };
 		FE03578A6DE4423D87F47DC6 /* Pods-Zatsudan.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Zatsudan.release.xcconfig"; path = "Pods/Target Support Files/Pods-Zatsudan/Pods-Zatsudan.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -127,6 +133,7 @@
 		FD52FB4B1CFA7106004E53E9 /* Entities */ = {
 			isa = PBXGroup;
 			children = (
+				FD52FB6C1CFAC010004E53E9 /* Area.swift */,
 			);
 			path = Entities;
 			sourceTree = "<group>";
@@ -141,6 +148,7 @@
 		FD52FB4D1CFA7106004E53E9 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				FD52FB691CFAAEC1004E53E9 /* SwiftyUserDefaults */,
 			);
 			path = Modules;
 			sourceTree = "<group>";
@@ -156,6 +164,7 @@
 			isa = PBXGroup;
 			children = (
 				FD52FB501CFA7106004E53E9 /* ViewController.swift */,
+				FD52FB671CFA9530004E53E9 /* SettingViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -167,6 +176,14 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
+		FD52FB691CFAAEC1004E53E9 /* SwiftyUserDefaults */ = {
+			isa = PBXGroup;
+			children = (
+				FD52FB6A1CFAAECE004E53E9 /* SwiftyUserDefaultsExtension.swift */,
+			);
+			path = SwiftyUserDefaults;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -174,8 +191,8 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = FD52FB401CFA6908004E53E9 /* Build configuration list for PBXNativeTarget "Zatsudan" */;
 			buildPhases = (
-				FD52FB531CFA751E004E53E9 /* Run Script */,
 				9AD755F806D13315651DD47D /* 📦 Check Pods Manifest.lock */,
+				FD52FB531CFA751E004E53E9 /* Run Script */,
 				FD52FB2A1CFA6908004E53E9 /* Sources */,
 				FD52FB2B1CFA6908004E53E9 /* Frameworks */,
 				FD52FB2C1CFA6908004E53E9 /* Resources */,
@@ -307,6 +324,9 @@
 				FD52FB521CFA7106004E53E9 /* ViewController.swift in Sources */,
 				FD52FB481CFA696E004E53E9 /* AppDelegate.swift in Sources */,
 				FD52FB551CFA7582004E53E9 /* R.generated.swift in Sources */,
+				FD52FB681CFA9530004E53E9 /* SettingViewController.swift in Sources */,
+				FD52FB6D1CFAC010004E53E9 /* Area.swift in Sources */,
+				FD52FB6B1CFAAECE004E53E9 /* SwiftyUserDefaultsExtension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
