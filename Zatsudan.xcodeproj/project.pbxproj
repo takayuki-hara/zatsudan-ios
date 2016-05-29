@@ -12,7 +12,8 @@
 		FD52FB391CFA6908004E53E9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FD52FB381CFA6908004E53E9 /* Assets.xcassets */; };
 		FD52FB3C1CFA6908004E53E9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FD52FB3A1CFA6908004E53E9 /* LaunchScreen.storyboard */; };
 		FD52FB481CFA696E004E53E9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD52FB441CFA696E004E53E9 /* AppDelegate.swift */; };
-		FD52FB491CFA696E004E53E9 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD52FB451CFA696E004E53E9 /* ViewController.swift */; };
+		FD52FB521CFA7106004E53E9 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD52FB501CFA7106004E53E9 /* ViewController.swift */; };
+		FD52FB551CFA7582004E53E9 /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD52FB541CFA7582004E53E9 /* R.generated.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -23,8 +24,9 @@
 		FD52FB381CFA6908004E53E9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FD52FB3B1CFA6908004E53E9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FD52FB441CFA696E004E53E9 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		FD52FB451CFA696E004E53E9 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		FD52FB471CFA696E004E53E9 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FD52FB501CFA7106004E53E9 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		FD52FB541CFA7582004E53E9 /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = "<group>"; };
 		FE03578A6DE4423D87F47DC6 /* Pods-Zatsudan.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Zatsudan.release.xcconfig"; path = "Pods/Target Support Files/Pods-Zatsudan/Pods-Zatsudan.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -90,8 +92,13 @@
 		FD52FB431CFA696E004E53E9 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				FD52FB4B1CFA7106004E53E9 /* Entities */,
+				FD52FB4C1CFA7106004E53E9 /* Models */,
+				FD52FB4D1CFA7106004E53E9 /* Modules */,
+				FD52FB4E1CFA7106004E53E9 /* Presenters */,
+				FD52FB4F1CFA7106004E53E9 /* ViewControllers */,
+				FD52FB511CFA7106004E53E9 /* Views */,
 				FD52FB441CFA696E004E53E9 /* AppDelegate.swift */,
-				FD52FB451CFA696E004E53E9 /* ViewController.swift */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -99,9 +106,53 @@
 		FD52FB461CFA696E004E53E9 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				FD52FB541CFA7582004E53E9 /* R.generated.swift */,
 				FD52FB471CFA696E004E53E9 /* Info.plist */,
 			);
 			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		FD52FB4B1CFA7106004E53E9 /* Entities */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Entities;
+			sourceTree = "<group>";
+		};
+		FD52FB4C1CFA7106004E53E9 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		FD52FB4D1CFA7106004E53E9 /* Modules */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Modules;
+			sourceTree = "<group>";
+		};
+		FD52FB4E1CFA7106004E53E9 /* Presenters */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Presenters;
+			sourceTree = "<group>";
+		};
+		FD52FB4F1CFA7106004E53E9 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				FD52FB501CFA7106004E53E9 /* ViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		FD52FB511CFA7106004E53E9 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -111,6 +162,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = FD52FB401CFA6908004E53E9 /* Build configuration list for PBXNativeTarget "Zatsudan" */;
 			buildPhases = (
+				FD52FB531CFA751E004E53E9 /* Run Script */,
 				9AD755F806D13315651DD47D /* 📦 Check Pods Manifest.lock */,
 				FD52FB2A1CFA6908004E53E9 /* Sources */,
 				FD52FB2B1CFA6908004E53E9 /* Frameworks */,
@@ -219,6 +271,20 @@
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
+		FD52FB531CFA751E004E53E9 /* Run Script */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Run Script";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"$PODS_ROOT/R.swift/rswift\" \"$SRCROOT/Zatsudan/Supporting Files\"";
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -226,8 +292,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FD52FB521CFA7106004E53E9 /* ViewController.swift in Sources */,
 				FD52FB481CFA696E004E53E9 /* AppDelegate.swift in Sources */,
-				FD52FB491CFA696E004E53E9 /* ViewController.swift in Sources */,
+				FD52FB551CFA7582004E53E9 /* R.generated.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
