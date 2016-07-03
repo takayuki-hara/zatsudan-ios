@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		E055311CE61559B7A14A5414 /* Pods_Zatsudan.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 66B4439B09BE7A668FFF5ED2 /* Pods_Zatsudan.framework */; };
+		FD0FEC3F1D28CF3400C6809D /* libdocomo-aitalk-ios-sdk-1.0.1.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FD0FEC3E1D28CF3400C6809D /* libdocomo-aitalk-ios-sdk-1.0.1.a */; };
+		FD0FEC431D28D02400C6809D /* AiTalkAudioPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = FD0FEC421D28D02400C6809D /* AiTalkAudioPlayer.m */; };
+		FD0FEC451D28D47900C6809D /* AiTalkAddHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = FD0FEC441D28D47900C6809D /* AiTalkAddHeader.m */; };
 		FD52FB371CFA6908004E53E9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FD52FB351CFA6908004E53E9 /* Main.storyboard */; };
 		FD52FB391CFA6908004E53E9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FD52FB381CFA6908004E53E9 /* Assets.xcassets */; };
 		FD52FB3C1CFA6908004E53E9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FD52FB3A1CFA6908004E53E9 /* LaunchScreen.storyboard */; };
@@ -23,6 +26,11 @@
 /* Begin PBXFileReference section */
 		66B4439B09BE7A668FFF5ED2 /* Pods_Zatsudan.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Zatsudan.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E8C2F86B5E6955A5387EF0F4 /* Pods-Zatsudan.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Zatsudan.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Zatsudan/Pods-Zatsudan.debug.xcconfig"; sourceTree = "<group>"; };
+		FD0FEC3E1D28CF3400C6809D /* libdocomo-aitalk-ios-sdk-1.0.1.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libdocomo-aitalk-ios-sdk-1.0.1.a"; path = "Libraries/AITalkSDK/libs/libdocomo-aitalk-ios-sdk-1.0.1.a"; sourceTree = "<group>"; };
+		FD0FEC411D28D02400C6809D /* AiTalkAudioPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AiTalkAudioPlayer.h; sourceTree = "<group>"; };
+		FD0FEC421D28D02400C6809D /* AiTalkAudioPlayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AiTalkAudioPlayer.m; sourceTree = "<group>"; };
+		FD0FEC441D28D47900C6809D /* AiTalkAddHeader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AiTalkAddHeader.m; sourceTree = "<group>"; };
+		FD0FEC461D28D48500C6809D /* AiTalkAddHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AiTalkAddHeader.h; sourceTree = "<group>"; };
 		FD52FB2E1CFA6908004E53E9 /* ざつだん.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ざつだん.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FD52FB361CFA6908004E53E9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		FD52FB381CFA6908004E53E9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -47,6 +55,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FD0FEC3F1D28CF3400C6809D /* libdocomo-aitalk-ios-sdk-1.0.1.a in Frameworks */,
 				FD52FB631CFA80D3004E53E9 /* libdocomo-dialogue-ios-sdk-2.0.0.a in Frameworks */,
 				E055311CE61559B7A14A5414 /* Pods_Zatsudan.framework in Frameworks */,
 			);
@@ -67,6 +76,7 @@
 		6002879BC6F40EBF5A753321 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				FD0FEC3E1D28CF3400C6809D /* libdocomo-aitalk-ios-sdk-1.0.1.a */,
 				FD52FB601CFA80D3004E53E9 /* libdocomo-common-ios-sdk-1.0.1.a */,
 				FD52FB611CFA80D3004E53E9 /* libdocomo-dialogue-ios-sdk-2.0.0.a */,
 				FD52FB5C1CFA8030004E53E9 /* libdocomo-common-ios-sdk-1.0.1.a */,
@@ -74,6 +84,17 @@
 				66B4439B09BE7A668FFF5ED2 /* Pods_Zatsudan.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		FD0FEC401D28D02400C6809D /* AiTalk */ = {
+			isa = PBXGroup;
+			children = (
+				FD0FEC411D28D02400C6809D /* AiTalkAudioPlayer.h */,
+				FD0FEC421D28D02400C6809D /* AiTalkAudioPlayer.m */,
+				FD0FEC441D28D47900C6809D /* AiTalkAddHeader.m */,
+				FD0FEC461D28D48500C6809D /* AiTalkAddHeader.h */,
+			);
+			path = AiTalk;
 			sourceTree = "<group>";
 		};
 		FD52FB251CFA6908004E53E9 = {
@@ -148,6 +169,7 @@
 		FD52FB4D1CFA7106004E53E9 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				FD0FEC401D28D02400C6809D /* AiTalk */,
 				FD52FB691CFAAEC1004E53E9 /* SwiftyUserDefaults */,
 			);
 			path = Modules;
@@ -322,8 +344,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				FD52FB521CFA7106004E53E9 /* ViewController.swift in Sources */,
+				FD0FEC431D28D02400C6809D /* AiTalkAudioPlayer.m in Sources */,
 				FD52FB481CFA696E004E53E9 /* AppDelegate.swift in Sources */,
 				FD52FB551CFA7582004E53E9 /* R.generated.swift in Sources */,
+				FD0FEC451D28D47900C6809D /* AiTalkAddHeader.m in Sources */,
 				FD52FB681CFA9530004E53E9 /* SettingViewController.swift in Sources */,
 				FD52FB6D1CFAC010004E53E9 /* Area.swift in Sources */,
 				FD52FB6B1CFAAECE004E53E9 /* SwiftyUserDefaultsExtension.swift in Sources */,
@@ -449,6 +473,7 @@
 					"\"${PODS_ROOT}/Headers/Public\"",
 					"\"${PODS_ROOT}/Headers/Public/R.swift\"",
 					"\"$(SRCROOT)/Libraries/DialogueApiSDK/inc\"",
+					"\"$(SRCROOT)/Libraries/AITalkSDK/inc\"",
 				);
 				INFOPLIST_FILE = "Zatsudan/Supporting Files/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
@@ -457,6 +482,8 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/Libraries",
 					"$(PROJECT_DIR)/Libraries/DialogueApiSDK/libs",
+					"$(SRCROOT)/Libraries/AITalkSDK/libs",
+					"$(PROJECT_DIR)/Libraries/AITalkSDK/libs",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = jp.co.hispot.Zatsudan;
 				PRODUCT_NAME = "ざつだん";
@@ -477,6 +504,7 @@
 					"\"${PODS_ROOT}/Headers/Public\"",
 					"\"${PODS_ROOT}/Headers/Public/R.swift\"",
 					"\"$(SRCROOT)/Libraries/DialogueApiSDK/inc\"",
+					"\"$(SRCROOT)/Libraries/AITalkSDK/inc\"",
 				);
 				INFOPLIST_FILE = "Zatsudan/Supporting Files/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
@@ -485,6 +513,8 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/Libraries",
 					"$(PROJECT_DIR)/Libraries/DialogueApiSDK/libs",
+					"$(SRCROOT)/Libraries/AITalkSDK/libs",
+					"$(PROJECT_DIR)/Libraries/AITalkSDK/libs",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = jp.co.hispot.Zatsudan;
 				PRODUCT_NAME = "ざつだん";

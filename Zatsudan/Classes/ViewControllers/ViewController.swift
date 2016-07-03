@@ -123,6 +123,7 @@ class ViewController: JSQMessagesViewController {
                 self.showResponseMessage(result.utt)
                 self.mode = result.mode
                 self.context = result.context
+                self.requestSound(result.utt)
             },
             onError: { error in
                 self.errorAlert("エラーコード：\(error.code)")
@@ -196,5 +197,29 @@ class ViewController: JSQMessagesViewController {
         alert.addAction(ok)
         presentViewController(alert, animated: true, completion: nil)
     }
+
+    //合成音声の要求
+    private func requestSound(text: String) {
+        let ssml = AiTalkSsml()
+        let voice = AiTalkVoice(voiceName: "nozomi")
+        voice.addText(text)
+        ssml.addVoice(voice)
+        let search = AiTalkTextToSpeech()
+        search.requestAiTalkSsmlToSound(ssml.makeSsml(), onComplete: { data in
+                print("onComplete")
+                self.playAudio(data)
+            }) { receiveError in
+                self.errorAlert("エラーコード：\(receiveError.code)"
+            )
+        }
+    }
+    
+    //合成音声の再生
+    private func playAudio(data: NSData) {
+        print("playAudio data.length=\(data.length)")
+        let convData = AiTalkTextToSpeech.convertByteOrder16(data)
+        AiTalkAudioPlayer.manager().playSound(AiTalkAddHeader.addHeader(convData))
+    }
+
 }
 

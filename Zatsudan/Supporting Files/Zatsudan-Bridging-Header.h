@@ -8,3 +8,13 @@
 #import "DialogueRequestParam.h"
 #import "DialogueResultData.h"
 #import "SdkError.h"
+
+#import "AiTalkError.h"
+#import "AiTalkProsody.h"
+#import "AiTalkSsml.h"
+#import "AiTalkTextToSpeech.h"
+#import "AiTalkVoice.h"
+#import "AiTalkVoiceBase.h"
+
+#import "AiTalkAudioPlayer.h"
+#import "AiTalkAddHeader.h"
