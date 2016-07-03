@@ -21,6 +21,14 @@ class ViewController: JSQMessagesViewController {
     var mode = "dialog" // dialog | srtr
     var context = ""
 
+    // MARK: - IBAction
+    @IBAction func didPushClearButton(sender: AnyObject) {
+        self.messages.removeAll()
+        self.collectionView.reloadData()
+        self.mode = "dialog"
+        self.context = randomString(18)
+    }
+
     // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
