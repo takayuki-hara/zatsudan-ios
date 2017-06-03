@@ -4,7 +4,8 @@
 //  (c) 2014 NTT DOCOMO, INC. All Rights Reserved.
 //
 #import <Foundation/Foundation.h>
-#import "SdkError.h"
+#import <DOCOMOSDKCommon/DOCOMOSDKCommon.h>
+
 #import "AiTalkError.h"
 
 /**

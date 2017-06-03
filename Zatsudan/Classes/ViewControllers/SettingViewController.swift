@@ -21,26 +21,26 @@ class SettingViewController: UIViewController {
     @IBOutlet weak var langSegControl: UISegmentedControl!
 
     // MARK: - IBAction
-    @IBAction func didChangeName(sender: AnyObject) {
+    @IBAction func didChangeName(_ sender: AnyObject) {
         if let name = nameLabel.text {
             Defaults[.userName] = name
         }
     }
-    @IBAction func didChangeKana(sender: AnyObject) {
+    @IBAction func didChangeKana(_ sender: AnyObject) {
         if let kana = kanaLabel.text {
             Defaults[.userKana] = kana
         }
     }
-    @IBAction func didChangeSex(sender: AnyObject) {
+    @IBAction func didChangeSex(_ sender: AnyObject) {
         Defaults[.userSex] = sexSegControl.selectedSegmentIndex
     }
-    @IBAction func didChangeBlood(sender: AnyObject) {
+    @IBAction func didChangeBlood(_ sender: AnyObject) {
         Defaults[.userBlood] = bloodSegControl.selectedSegmentIndex
     }
-    @IBAction func didChangeDate(sender: AnyObject) {
+    @IBAction func didChangeDate(_ sender: AnyObject) {
         Defaults[.userBirthDay] = birthDataPicker.date
     }
-    @IBAction func didChangeLang(sender: AnyObject) {
+    @IBAction func didChangeLang(_ sender: AnyObject) {
         Defaults[.userLangage] = langSegControl.selectedSegmentIndex
     }
 
@@ -71,7 +71,7 @@ class SettingViewController: UIViewController {
         if let birth = Defaults[.userBirthDay] {
             self.birthDataPicker.date = birth
         } else {
-            self.birthDataPicker.date = NSDate()
+            self.birthDataPicker.date = Date()
         }
         self.areaPicker.selectRow(Defaults[.userArea], inComponent: 0, animated: true)
         self.langSegControl.selectedSegmentIndex = Defaults[.userLangage]
@@ -86,11 +86,11 @@ extension SettingViewController: UIPickerViewDelegate {
     
     // MARK: - UIPickerViewDelegate
     
-    func pickerView(pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         return Area(rawValue: row)?.toString()
     }
     
-    func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         Defaults[.userArea] = row
     }
 }
@@ -99,11 +99,11 @@ extension SettingViewController: UIPickerViewDataSource {
     
     // MARK: - UIPickerViewDataSource
     
-    func numberOfComponentsInPickerView(pickerView: UIPickerView) -> Int {
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
     }
     
-    func pickerView(pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
         return Area.count
     }
     

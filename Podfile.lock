@@ -1,11 +1,11 @@
 PODS:
-  - JSQMessagesViewController (7.3.0):
+  - JSQMessagesViewController (7.3.4):
     - JSQSystemSoundPlayer (~> 2.0.1)
   - JSQSystemSoundPlayer (2.0.1)
-  - R.swift (2.3.0):
-    - R.swift.Library (~> 2.1.0)
-  - R.swift.Library (2.1.0)
-  - SwiftyUserDefaults (2.2.0)
+  - R.swift (3.3.0):
+    - R.swift.Library (~> 3.0.2)
+  - R.swift.Library (3.0.2)
+  - SwiftyUserDefaults (3.0.0)
 
 DEPENDENCIES:
   - JSQMessagesViewController
@@ -13,12 +13,12 @@ DEPENDENCIES:
   - SwiftyUserDefaults
 
 SPEC CHECKSUMS:
-  JSQMessagesViewController: aa79a81b21387430d66aa657e5d1c5494b0ba307
+  JSQMessagesViewController: 39fed975e3c9f8eba7292071e29eeb541d105e66
   JSQSystemSoundPlayer: c5850e77a4363ffd374cd851154b9af93264ed8d
-  R.swift: 38b2191a603c3d491a09baddfb4ccc7aa9be4d9d
-  R.swift.Library: e5e077ed04f6867a95676af491650091b23518e9
-  SwiftyUserDefaults: e7c8197a9d4068702e7f2406a968cae413b8de27
+  R.swift: bde9704d50ff36820f49e266bc88ef545e1e9b36
+  R.swift.Library: fbdec16c9802ad104fc1ba53415dc190e6ec5c73
+  SwiftyUserDefaults: 0f1d45fc3aafb9064dac661e367f8f83fe21a4b4
 
 PODFILE CHECKSUM: c57e59beffae2eccb38b02b0743779afe27b35ff
 
-COCOAPODS: 1.0.0
+COCOAPODS: 1.2.1

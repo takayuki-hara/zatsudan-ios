@@ -5,10 +5,10 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <DOCOMOSDKCommon/SdkError.h>
 #import "DialogueResultData.h"
 #import "DialogueError.h"
 #import "DialogueRequestParam.h"
-#import "SdkError.h"
 
 /**
  雑談対話 SDK： 雑談対話問い合わせ処理クラス。

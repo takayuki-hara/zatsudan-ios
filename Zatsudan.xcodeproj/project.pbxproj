@@ -8,29 +8,40 @@
 
 /* Begin PBXBuildFile section */
 		E055311CE61559B7A14A5414 /* Pods_Zatsudan.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 66B4439B09BE7A668FFF5ED2 /* Pods_Zatsudan.framework */; };
-		FD0FEC3F1D28CF3400C6809D /* libdocomo-aitalk-ios-sdk-1.0.1.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FD0FEC3E1D28CF3400C6809D /* libdocomo-aitalk-ios-sdk-1.0.1.a */; };
-		FD0FEC431D28D02400C6809D /* AiTalkAudioPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = FD0FEC421D28D02400C6809D /* AiTalkAudioPlayer.m */; };
-		FD0FEC451D28D47900C6809D /* AiTalkAddHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = FD0FEC441D28D47900C6809D /* AiTalkAddHeader.m */; };
 		FD52FB371CFA6908004E53E9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FD52FB351CFA6908004E53E9 /* Main.storyboard */; };
 		FD52FB391CFA6908004E53E9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FD52FB381CFA6908004E53E9 /* Assets.xcassets */; };
 		FD52FB3C1CFA6908004E53E9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FD52FB3A1CFA6908004E53E9 /* LaunchScreen.storyboard */; };
 		FD52FB481CFA696E004E53E9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD52FB441CFA696E004E53E9 /* AppDelegate.swift */; };
 		FD52FB521CFA7106004E53E9 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD52FB501CFA7106004E53E9 /* ViewController.swift */; };
 		FD52FB551CFA7582004E53E9 /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD52FB541CFA7582004E53E9 /* R.generated.swift */; };
-		FD52FB631CFA80D3004E53E9 /* libdocomo-dialogue-ios-sdk-2.0.0.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FD52FB611CFA80D3004E53E9 /* libdocomo-dialogue-ios-sdk-2.0.0.a */; };
 		FD52FB681CFA9530004E53E9 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD52FB671CFA9530004E53E9 /* SettingViewController.swift */; };
 		FD52FB6B1CFAAECE004E53E9 /* SwiftyUserDefaultsExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD52FB6A1CFAAECE004E53E9 /* SwiftyUserDefaultsExtension.swift */; };
 		FD52FB6D1CFAC010004E53E9 /* Area.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD52FB6C1CFAC010004E53E9 /* Area.swift */; };
+		FDA66DB31EE2574E0063DE8B /* AiTalkAddHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = FDA66DB01EE2574E0063DE8B /* AiTalkAddHeader.m */; };
+		FDA66DB41EE2574E0063DE8B /* AiTalkAudioPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = FDA66DB21EE2574E0063DE8B /* AiTalkAudioPlayer.m */; };
+		FDA66DB81EE25D230063DE8B /* DOCOMOSDKAitalk.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = FDA66DB71EE25D230063DE8B /* DOCOMOSDKAitalk.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		FDA66DBA1EE25D370063DE8B /* DOCOMOSDKDialogue.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = FDA66DB91EE25D370063DE8B /* DOCOMOSDKDialogue.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		FDA66DBC1EE25D440063DE8B /* DOCOMOSDKCommon.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = FDA66DBB1EE25D440063DE8B /* DOCOMOSDKCommon.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		FDA66DB61EE25CF40063DE8B /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				FDA66DBC1EE25D440063DE8B /* DOCOMOSDKCommon.framework in CopyFiles */,
+				FDA66DBA1EE25D370063DE8B /* DOCOMOSDKDialogue.framework in CopyFiles */,
+				FDA66DB81EE25D230063DE8B /* DOCOMOSDKAitalk.framework in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		66B4439B09BE7A668FFF5ED2 /* Pods_Zatsudan.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Zatsudan.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E8C2F86B5E6955A5387EF0F4 /* Pods-Zatsudan.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Zatsudan.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Zatsudan/Pods-Zatsudan.debug.xcconfig"; sourceTree = "<group>"; };
-		FD0FEC3E1D28CF3400C6809D /* libdocomo-aitalk-ios-sdk-1.0.1.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libdocomo-aitalk-ios-sdk-1.0.1.a"; path = "Libraries/AITalkSDK/libs/libdocomo-aitalk-ios-sdk-1.0.1.a"; sourceTree = "<group>"; };
-		FD0FEC411D28D02400C6809D /* AiTalkAudioPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AiTalkAudioPlayer.h; sourceTree = "<group>"; };
-		FD0FEC421D28D02400C6809D /* AiTalkAudioPlayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AiTalkAudioPlayer.m; sourceTree = "<group>"; };
-		FD0FEC441D28D47900C6809D /* AiTalkAddHeader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AiTalkAddHeader.m; sourceTree = "<group>"; };
-		FD0FEC461D28D48500C6809D /* AiTalkAddHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AiTalkAddHeader.h; sourceTree = "<group>"; };
 		FD52FB2E1CFA6908004E53E9 /* ざつだん.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ざつだん.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FD52FB361CFA6908004E53E9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		FD52FB381CFA6908004E53E9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -39,14 +50,17 @@
 		FD52FB471CFA696E004E53E9 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FD52FB501CFA7106004E53E9 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		FD52FB541CFA7582004E53E9 /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = "<group>"; };
-		FD52FB5C1CFA8030004E53E9 /* libdocomo-common-ios-sdk-1.0.1.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libdocomo-common-ios-sdk-1.0.1.a"; path = "Libraries/libdocomo-common-ios-sdk-1.0.1.a"; sourceTree = "<group>"; };
-		FD52FB5D1CFA8030004E53E9 /* libdocomo-dialogue-ios-sdk-2.0.0.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libdocomo-dialogue-ios-sdk-2.0.0.a"; path = "Libraries/libdocomo-dialogue-ios-sdk-2.0.0.a"; sourceTree = "<group>"; };
-		FD52FB601CFA80D3004E53E9 /* libdocomo-common-ios-sdk-1.0.1.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libdocomo-common-ios-sdk-1.0.1.a"; path = "Libraries/DialogueApiSDK/libs/libdocomo-common-ios-sdk-1.0.1.a"; sourceTree = "<group>"; };
-		FD52FB611CFA80D3004E53E9 /* libdocomo-dialogue-ios-sdk-2.0.0.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libdocomo-dialogue-ios-sdk-2.0.0.a"; path = "Libraries/DialogueApiSDK/libs/libdocomo-dialogue-ios-sdk-2.0.0.a"; sourceTree = "<group>"; };
 		FD52FB641CFA8155004E53E9 /* Zatsudan-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Zatsudan-Bridging-Header.h"; sourceTree = "<group>"; };
 		FD52FB671CFA9530004E53E9 /* SettingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
 		FD52FB6A1CFAAECE004E53E9 /* SwiftyUserDefaultsExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftyUserDefaultsExtension.swift; sourceTree = "<group>"; };
 		FD52FB6C1CFAC010004E53E9 /* Area.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Area.swift; sourceTree = "<group>"; };
+		FDA66DAF1EE2574E0063DE8B /* AiTalkAddHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AiTalkAddHeader.h; sourceTree = "<group>"; };
+		FDA66DB01EE2574E0063DE8B /* AiTalkAddHeader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AiTalkAddHeader.m; sourceTree = "<group>"; };
+		FDA66DB11EE2574E0063DE8B /* AiTalkAudioPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AiTalkAudioPlayer.h; sourceTree = "<group>"; };
+		FDA66DB21EE2574E0063DE8B /* AiTalkAudioPlayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AiTalkAudioPlayer.m; sourceTree = "<group>"; };
+		FDA66DB71EE25D230063DE8B /* DOCOMOSDKAitalk.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = DOCOMOSDKAitalk.framework; path = Libraries/AITalkSDK/DOCOMOSDKAitalk.framework; sourceTree = "<group>"; };
+		FDA66DB91EE25D370063DE8B /* DOCOMOSDKDialogue.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = DOCOMOSDKDialogue.framework; path = Libraries/DialogueApiSDK/DOCOMOSDKDialogue.framework; sourceTree = "<group>"; };
+		FDA66DBB1EE25D440063DE8B /* DOCOMOSDKCommon.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = DOCOMOSDKCommon.framework; path = Libraries/DocomoCommon/DOCOMOSDKCommon.framework; sourceTree = "<group>"; };
 		FE03578A6DE4423D87F47DC6 /* Pods-Zatsudan.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Zatsudan.release.xcconfig"; path = "Pods/Target Support Files/Pods-Zatsudan/Pods-Zatsudan.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -55,8 +69,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FD0FEC3F1D28CF3400C6809D /* libdocomo-aitalk-ios-sdk-1.0.1.a in Frameworks */,
-				FD52FB631CFA80D3004E53E9 /* libdocomo-dialogue-ios-sdk-2.0.0.a in Frameworks */,
 				E055311CE61559B7A14A5414 /* Pods_Zatsudan.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -76,25 +88,12 @@
 		6002879BC6F40EBF5A753321 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				FD0FEC3E1D28CF3400C6809D /* libdocomo-aitalk-ios-sdk-1.0.1.a */,
-				FD52FB601CFA80D3004E53E9 /* libdocomo-common-ios-sdk-1.0.1.a */,
-				FD52FB611CFA80D3004E53E9 /* libdocomo-dialogue-ios-sdk-2.0.0.a */,
-				FD52FB5C1CFA8030004E53E9 /* libdocomo-common-ios-sdk-1.0.1.a */,
-				FD52FB5D1CFA8030004E53E9 /* libdocomo-dialogue-ios-sdk-2.0.0.a */,
+				FDA66DBB1EE25D440063DE8B /* DOCOMOSDKCommon.framework */,
+				FDA66DB91EE25D370063DE8B /* DOCOMOSDKDialogue.framework */,
+				FDA66DB71EE25D230063DE8B /* DOCOMOSDKAitalk.framework */,
 				66B4439B09BE7A668FFF5ED2 /* Pods_Zatsudan.framework */,
 			);
 			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		FD0FEC401D28D02400C6809D /* AiTalk */ = {
-			isa = PBXGroup;
-			children = (
-				FD0FEC411D28D02400C6809D /* AiTalkAudioPlayer.h */,
-				FD0FEC421D28D02400C6809D /* AiTalkAudioPlayer.m */,
-				FD0FEC441D28D47900C6809D /* AiTalkAddHeader.m */,
-				FD0FEC461D28D48500C6809D /* AiTalkAddHeader.h */,
-			);
-			path = AiTalk;
 			sourceTree = "<group>";
 		};
 		FD52FB251CFA6908004E53E9 = {
@@ -169,7 +168,7 @@
 		FD52FB4D1CFA7106004E53E9 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
-				FD0FEC401D28D02400C6809D /* AiTalk */,
+				FDA66DAE1EE2574E0063DE8B /* AiTalk */,
 				FD52FB691CFAAEC1004E53E9 /* SwiftyUserDefaults */,
 			);
 			path = Modules;
@@ -206,6 +205,17 @@
 			path = SwiftyUserDefaults;
 			sourceTree = "<group>";
 		};
+		FDA66DAE1EE2574E0063DE8B /* AiTalk */ = {
+			isa = PBXGroup;
+			children = (
+				FDA66DAF1EE2574E0063DE8B /* AiTalkAddHeader.h */,
+				FDA66DB01EE2574E0063DE8B /* AiTalkAddHeader.m */,
+				FDA66DB11EE2574E0063DE8B /* AiTalkAudioPlayer.h */,
+				FDA66DB21EE2574E0063DE8B /* AiTalkAudioPlayer.m */,
+			);
+			path = AiTalk;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -213,13 +223,14 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = FD52FB401CFA6908004E53E9 /* Build configuration list for PBXNativeTarget "Zatsudan" */;
 			buildPhases = (
-				9AD755F806D13315651DD47D /* 📦 Check Pods Manifest.lock */,
+				9AD755F806D13315651DD47D /* [CP] Check Pods Manifest.lock */,
 				FD52FB531CFA751E004E53E9 /* Run Script */,
 				FD52FB2A1CFA6908004E53E9 /* Sources */,
 				FD52FB2B1CFA6908004E53E9 /* Frameworks */,
 				FD52FB2C1CFA6908004E53E9 /* Resources */,
-				2A2391A000084C2DD27BE0F8 /* 📦 Embed Pods Frameworks */,
-				86E463005175B620648B7FD5 /* 📦 Copy Pods Resources */,
+				FDA66DB61EE25CF40063DE8B /* CopyFiles */,
+				2A2391A000084C2DD27BE0F8 /* [CP] Embed Pods Frameworks */,
+				86E463005175B620648B7FD5 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -242,6 +253,8 @@
 				TargetAttributes = {
 					FD52FB2D1CFA6908004E53E9 = {
 						CreatedOnToolsVersion = 7.3;
+						DevelopmentTeam = VCLT7WRSQ7;
+						LastSwiftMigration = 0830;
 					};
 				};
 			};
@@ -277,14 +290,14 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		2A2391A000084C2DD27BE0F8 /* 📦 Embed Pods Frameworks */ = {
+		2A2391A000084C2DD27BE0F8 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "📦 Embed Pods Frameworks";
+			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -292,14 +305,14 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Zatsudan/Pods-Zatsudan-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		86E463005175B620648B7FD5 /* 📦 Copy Pods Resources */ = {
+		86E463005175B620648B7FD5 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "📦 Copy Pods Resources";
+			name = "[CP] Copy Pods Resources";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -307,19 +320,19 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Zatsudan/Pods-Zatsudan-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		9AD755F806D13315651DD47D /* 📦 Check Pods Manifest.lock */ = {
+		9AD755F806D13315651DD47D /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "📦 Check Pods Manifest.lock";
+			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		FD52FB531CFA751E004E53E9 /* Run Script */ = {
@@ -344,10 +357,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				FD52FB521CFA7106004E53E9 /* ViewController.swift in Sources */,
-				FD0FEC431D28D02400C6809D /* AiTalkAudioPlayer.m in Sources */,
 				FD52FB481CFA696E004E53E9 /* AppDelegate.swift in Sources */,
+				FDA66DB31EE2574E0063DE8B /* AiTalkAddHeader.m in Sources */,
+				FDA66DB41EE2574E0063DE8B /* AiTalkAudioPlayer.m in Sources */,
 				FD52FB551CFA7582004E53E9 /* R.generated.swift in Sources */,
-				FD0FEC451D28D47900C6809D /* AiTalkAddHeader.m in Sources */,
 				FD52FB681CFA9530004E53E9 /* SettingViewController.swift in Sources */,
 				FD52FB6D1CFAC010004E53E9 /* Area.swift in Sources */,
 				FD52FB6B1CFAAECE004E53E9 /* SwiftyUserDefaultsExtension.swift in Sources */,
@@ -467,28 +480,29 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				DEVELOPMENT_TEAM = VCLT7WRSQ7;
 				ENABLE_BITCODE = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Libraries/DialogueApiSDK",
+					"$(PROJECT_DIR)/Libraries/DocomoCommon",
+					"$(PROJECT_DIR)/Libraries/AITalkSDK",
+				);
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"${PODS_ROOT}/Headers/Public\"",
 					"\"${PODS_ROOT}/Headers/Public/R.swift\"",
-					"\"$(SRCROOT)/Libraries/DialogueApiSDK/inc\"",
-					"\"$(SRCROOT)/Libraries/AITalkSDK/inc\"",
+					"\"$(SRCROOT)/Libraries/\"/**",
 				);
 				INFOPLIST_FILE = "Zatsudan/Supporting Files/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/Libraries",
-					"$(PROJECT_DIR)/Libraries/DialogueApiSDK/libs",
-					"$(SRCROOT)/Libraries/AITalkSDK/libs",
-					"$(PROJECT_DIR)/Libraries/AITalkSDK/libs",
-				);
+				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = jp.co.hispot.Zatsudan;
 				PRODUCT_NAME = "ざつだん";
 				SWIFT_OBJC_BRIDGING_HEADER = "Zatsudan/Supporting Files/Zatsudan-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
@@ -498,27 +512,28 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				DEVELOPMENT_TEAM = VCLT7WRSQ7;
 				ENABLE_BITCODE = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Libraries/DialogueApiSDK",
+					"$(PROJECT_DIR)/Libraries/DocomoCommon",
+					"$(PROJECT_DIR)/Libraries/AITalkSDK",
+				);
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"${PODS_ROOT}/Headers/Public\"",
 					"\"${PODS_ROOT}/Headers/Public/R.swift\"",
-					"\"$(SRCROOT)/Libraries/DialogueApiSDK/inc\"",
-					"\"$(SRCROOT)/Libraries/AITalkSDK/inc\"",
+					"\"$(SRCROOT)/Libraries/\"/**",
 				);
 				INFOPLIST_FILE = "Zatsudan/Supporting Files/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/Libraries",
-					"$(PROJECT_DIR)/Libraries/DialogueApiSDK/libs",
-					"$(SRCROOT)/Libraries/AITalkSDK/libs",
-					"$(PROJECT_DIR)/Libraries/AITalkSDK/libs",
-				);
+				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = jp.co.hispot.Zatsudan;
 				PRODUCT_NAME = "ざつだん";
 				SWIFT_OBJC_BRIDGING_HEADER = "Zatsudan/Supporting Files/Zatsudan-Bridging-Header.h";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};

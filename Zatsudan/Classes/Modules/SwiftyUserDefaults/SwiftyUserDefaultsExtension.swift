@@ -14,7 +14,7 @@ extension DefaultsKeys {
     static let userKana = DefaultsKey<String>("userKana")
     static let userSex = DefaultsKey<Int>("userSex")
     static let userBlood = DefaultsKey<Int>("userBlood")
-    static let userBirthDay = DefaultsKey<NSDate?>("userBirthDay")
+    static let userBirthDay = DefaultsKey<Date?>("userBirthDay")
     static let userArea = DefaultsKey<Int>("userArea")
     static let userLangage = DefaultsKey<Int>("userLangage")
 }

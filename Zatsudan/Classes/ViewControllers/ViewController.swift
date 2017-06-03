@@ -22,7 +22,7 @@ class ViewController: JSQMessagesViewController {
     var context = ""
 
     // MARK: - IBAction
-    @IBAction func didPushClearButton(sender: AnyObject) {
+    @IBAction func didPushClearButton(_ sender: AnyObject) {
         self.messages.removeAll()
         self.collectionView.reloadData()
         self.mode = "dialog"
@@ -39,12 +39,12 @@ class ViewController: JSQMessagesViewController {
         
         //吹き出しの設定
         let bubbleFactory = JSQMessagesBubbleImageFactory()
-        self.incomingBubble = bubbleFactory.incomingMessagesBubbleImageWithColor(UIColor.jsq_messageBubbleBlueColor())
-        self.outgoingBubble = bubbleFactory.outgoingMessagesBubbleImageWithColor(UIColor.jsq_messageBubbleGreenColor())
+        self.incomingBubble = bubbleFactory?.incomingMessagesBubbleImage(with: UIColor.jsq_messageBubbleBlue())
+        self.outgoingBubble = bubbleFactory?.outgoingMessagesBubbleImage(with: UIColor.jsq_messageBubbleGreen())
         
         //アバターの設定
-        self.incomingAvatar = JSQMessagesAvatarImageFactory.avatarImageWithImage(R.image.apiIcon()!, diameter: 64)
-        self.outgoingAvatar = JSQMessagesAvatarImageFactory.avatarImageWithImage(R.image.youIcon()!, diameter: 64)
+        self.incomingAvatar = JSQMessagesAvatarImageFactory.avatarImage(with: R.image.apiIcon()!, diameter: 64)
+        self.outgoingAvatar = JSQMessagesAvatarImageFactory.avatarImage(with: R.image.youIcon()!, diameter: 64)
 
         //初期化
         AuthApiKey.initializeAuth("6e2f54636b655364647a6f6d524644424b6e4f50504e665a517772333376324d354e6f4c4e514a59307744")
@@ -60,14 +60,14 @@ class ViewController: JSQMessagesViewController {
     // MARK: - Override Methods
 
     //Sendボタンが押された時に呼ばれる
-    override func didPressSendButton(button: UIButton!, withMessageText text: String!, senderId: String!, senderDisplayName: String!, date: NSDate!) {
+    override func didPressSend(_ button: UIButton!, withMessageText text: String!, senderId: String!, senderDisplayName: String!, date: Date!) {
         
         //新しいメッセージデータを追加する
-        let message = JSQMessage(senderId: senderId, displayName: senderDisplayName, text: text)
+        guard let message = JSQMessage(senderId: senderId, displayName: senderDisplayName, text: text) else { return }
         self.messages.append(message)
         
         //メッセージの送信処理を完了する(画面上にメッセージが表示される)
-        self.finishReceivingMessageAnimated(true)
+        self.finishReceivingMessage(animated: true)
         self.inputToolbar.contentView.textView.text = ""
 
         //対話メッセージを要求する
@@ -75,18 +75,18 @@ class ViewController: JSQMessagesViewController {
     }
 
     //アクセサリーボタンが押された時に呼ばれる
-    override func didPressAccessoryButton(sender: UIButton!) {
+    override func didPressAccessoryButton(_ sender: UIButton!) {
         //何もしない（未実装）
         //メソッドがないと落ちる
     }
 
     //アイテムごとに参照するメッセージデータを返す
-    override func collectionView(collectionView: JSQMessagesCollectionView!, messageDataForItemAtIndexPath indexPath: NSIndexPath!) -> JSQMessageData! {
+    override func collectionView(_ collectionView: JSQMessagesCollectionView!, messageDataForItemAt indexPath: IndexPath!) -> JSQMessageData! {
         return self.messages[indexPath.item]
     }
     
     //アイテムごとのMessageBubble(背景)を返す
-    override func collectionView(collectionView: JSQMessagesCollectionView!, messageBubbleImageDataForItemAtIndexPath indexPath: NSIndexPath!) -> JSQMessageBubbleImageDataSource! {
+    override func collectionView(_ collectionView: JSQMessagesCollectionView!, messageBubbleImageDataForItemAt indexPath: IndexPath!) -> JSQMessageBubbleImageDataSource! {
         let message = self.messages[indexPath.item]
         if message.senderId == self.senderId {
             return self.outgoingBubble
@@ -95,7 +95,7 @@ class ViewController: JSQMessagesViewController {
     }
     
     //アイテムごとにアバター画像を返す
-    override func collectionView(collectionView: JSQMessagesCollectionView!, avatarImageDataForItemAtIndexPath indexPath: NSIndexPath!) -> JSQMessageAvatarImageDataSource! {
+    override func collectionView(_ collectionView: JSQMessagesCollectionView!, avatarImageDataForItemAt indexPath: IndexPath!) -> JSQMessageAvatarImageDataSource! {
         let message = self.messages[indexPath.item]
         if message.senderId == self.senderId {
             return self.outgoingAvatar
@@ -104,7 +104,7 @@ class ViewController: JSQMessagesViewController {
     }
     
     //アイテムの総数を返す
-    override func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+    override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return self.messages.count
     }
 
@@ -112,27 +112,29 @@ class ViewController: JSQMessagesViewController {
     // MARK: - Private Methods
     
     //対話メッセージを要求する
-    private func requestMessage(text: String) {
-        let dialogue = Dialogue()
-        let param = self.createRequestParam(text)
+    private func requestMessage(_ text: String) {
+        guard let dialogue = Dialogue() else { return }
+        let param = self.createRequestParam(text: text)
 
         //API
         //Memo: DialogueErrorクラスがx86_64にないので返り値は受けとらない
         dialogue.request(param,
             onComplete: { result in
-                self.showResponseMessage(result.utt)
-                self.mode = result.mode
-                self.context = result.context
-                self.requestSound(result.utt)
+                guard let ret = result, let text = ret.utt, let mode = ret.mode, let context = ret.context else { return }
+                self.showResponseMessage(text)
+                self.mode = mode
+                self.context = context
+                self.requestSound(text)
             },
             onError: { error in
-                self.errorAlert("エラーコード：\(error.code)")
+                self.errorAlert("エラーコード：\(String(describing: error?.code))")
         })
     }
 
     //リクエストパラメータを生成する
-    private func createRequestParam(text: String) -> DialogueRequestParam {
-        let param = DialogueRequestParam()
+    private func createRequestParam(text: String) -> DialogueRequestParam? {
+        guard let param = DialogueRequestParam() else { return nil }
+
         param.utt = text
         param.mode = self.mode
         param.context = self.context
@@ -156,11 +158,13 @@ class ViewController: JSQMessagesViewController {
         default: break
         }
         if let birth = Defaults[.userBirthDay] {
-            let calendar = NSCalendar.currentCalendar()
-            let comps = calendar.components([.Year, .Month, .Day], fromDate: birth)
-            param.birthdateY = comps.year
-            param.birthdateM = comps.month
-            param.birthdateD = comps.day
+            let calendar = Calendar.current
+            let comps = calendar.dateComponents([.year, .month, .day], from: birth)
+            if let year = comps.year, let month = comps.month, let day = comps.day {
+                param.birthdateY = year
+                param.birthdateM = month
+                param.birthdateD = day
+            }
         }
         param.place = Area(rawValue: Defaults[.userArea])?.toString()
         switch Defaults[.userLangage] {
@@ -173,50 +177,53 @@ class ViewController: JSQMessagesViewController {
     }
 
     //レスポンスを表示する
-    private func showResponseMessage(text: String) {
-        let message = JSQMessage(senderId: "api", displayName: "api", text: text)
-        self.messages.append(message)
-        self.finishReceivingMessageAnimated(true)
+    private func showResponseMessage(_ text: String) {
+        if let message = JSQMessage(senderId: "api", displayName: "api", text: text) {
+            self.messages.append(message)
+            self.finishReceivingMessage(animated: true)
+        }
     }
 
     //ランダムな文字列を生成する
-    private func randomString(length: Int) -> String {
+    private func randomString(_ length: Int) -> String {
         let alphabet = "1234567890abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
         let upperBound = UInt32(alphabet.characters.count)
         return String((0..<length).map { _ -> Character in
-            return alphabet[alphabet.startIndex.advancedBy(Int(arc4random_uniform(upperBound)))]
+            return alphabet[alphabet.characters.index(alphabet.startIndex, offsetBy: Int(arc4random_uniform(upperBound)))]
             })
     }
 
     //エラーコード表示
-    private func errorAlert(message: String) {
-        let alert = UIAlertController(title: "エラー", message: message, preferredStyle: .Alert)
-        let ok = UIAlertAction(title: "OK", style: .Default) { action in
+    private func errorAlert(_ message: String) {
+        let alert = UIAlertController(title: "エラー", message: message, preferredStyle: .alert)
+        let ok = UIAlertAction(title: "OK", style: .default) { action in
             print(message)
         }
         alert.addAction(ok)
-        presentViewController(alert, animated: true, completion: nil)
+        present(alert, animated: true, completion: nil)
     }
 
     //合成音声の要求
-    private func requestSound(text: String) {
-        let ssml = AiTalkSsml()
-        let voice = AiTalkVoice(voiceName: "nozomi")
+    private func requestSound(_ text: String) {
+        guard let ssml = AiTalkSsml() else { return }
+        guard let voice = AiTalkVoice(voiceName: "nozomi") else { return }
+        guard let search = AiTalkTextToSpeech() else { return }
+
         voice.addText(text)
-        ssml.addVoice(voice)
-        let search = AiTalkTextToSpeech()
-        search.requestAiTalkSsmlToSound(ssml.makeSsml(), onComplete: { data in
+        ssml.add(voice)
+        search.requestAiTalkSsml(toSound: ssml.make(), onComplete: { data in
                 print("onComplete")
-                self.playAudio(data)
+                guard let sound = data else { return }
+                self.playAudio(sound)
             }) { receiveError in
-                self.errorAlert("エラーコード：\(receiveError.code)"
+                self.errorAlert("エラーコード：\(String(describing: receiveError?.code))"
             )
         }
     }
     
     //合成音声の再生
-    private func playAudio(data: NSData) {
-        print("playAudio data.length=\(data.length)")
+    private func playAudio(_ data: Data) {
+        print("playAudio data.length=\(data.count)")
         let convData = AiTalkTextToSpeech.convertByteOrder16(data)
         AiTalkAudioPlayer.manager().playSound(AiTalkAddHeader.addHeader(convData))
     }
